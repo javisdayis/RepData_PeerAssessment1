@@ -15,11 +15,6 @@ For the first step of the assessment we need:
 * No need to preprocess the data fro our final purpose
 
 ```r
-url <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
-dest <- getwd()
-dest <- paste(dest,sep="","/repdata-data-activity.zip")
-download.file(url,destfile=dest,method="curl")
-unzip(dest,files="activity.csv")
 orig <- getwd()
 orig <- paste(orig,sep="","/activity.csv")
 model <- read.csv(orig,header=T)
