@@ -12,14 +12,16 @@ For the first step of the assessment we need:
 * Download the data, in this case data are in a .zip file
 * Unzip the file in the selected destiny
 * Load the data in a dataframe
-* No need to preprocess the data fro our final purpose
+* No need to preprocess the data for our final purpose
 
-```r
 url <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
 dest <- getwd()
 dest <- paste(dest, sep = "", "/repdata-data-activity.zip")
 download.file(url, destfile = dest, method = "curl")
 unzip(dest, files = "activity.csv")
+
+
+```{r}
 orig <- getwd()
 orig <- paste(orig, sep = "", "/activity.csv")
 model <- read.csv(orig, header = T)
@@ -41,13 +43,10 @@ model <- read.csv(orig, header = T)
   the public transport or go to work in car or maybe a mix of all of them. 
   
 
-```r
+```{r}
 hist(tapply(model$steps, model$date, sum, na.rm = TRUE), breaks = 50, ylab = "Days", 
     xlab = "Steps", main = "Histogram of Steps per Day")
 ```
-
-![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2.png) 
-
   
   
   We can observe also when we launch the tapply function that there are two 
