@@ -60,7 +60,12 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <h2>Loading and preprocessing the data</h2>
 <p><strong>Load the data: <a href="https://d396qusza40orc.cloudfront.%20net/repdata%2Fdata%2Factivity.zip">Activity monitoring data</a></strong></p>
 <p>For the first step of the assessment we need: * Get the url where we can find the data * Download the data, in this case data are in a .zip file * Unzip the file in the selected destiny * Load the data in a dataframe * No need to preprocess the data fro our final purpose</p>
-<pre class="r"><code>orig &lt;- getwd()
+<pre class="r"><code>url &lt;- &quot;https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip&quot;
+dest &lt;- getwd()
+dest &lt;- paste(dest,sep=&quot;&quot;,&quot;/repdata-data-activity.zip&quot;)
+download.file(url,destfile=dest,method=&quot;curl&quot;)
+unzip(dest,files=&quot;activity.csv&quot;)
+orig &lt;- getwd()
 orig &lt;- paste(orig,sep=&quot;&quot;,&quot;/activity.csv&quot;)
 model &lt;- read.csv(orig,header=T)</code></pre>
 </div>
